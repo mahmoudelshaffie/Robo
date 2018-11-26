@@ -1,0 +1,2549 @@
+{
+	"info": {
+		"_postman_id": "1fb5eb3b-73ae-4cb3-a86d-1cf7ff060def",
+		"name": "Robo API Tests",
+		"description": "Robo API tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Failure Senarios Before Robot Placement",
+			"item": [
+				{
+					"name": "Report without placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"ROBOT MISSING\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Report without placement, should report with \"ROBOT MISSING\""
+					},
+					"response": []
+				},
+				{
+					"name": "Move without robot placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a774e804-e137-44e4-bf67-f4875338437f",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MOVE_URL}}",
+							"host": [
+								"{{MOVE_URL}}"
+							]
+						},
+						"description": "Try to move robot without placing it. Should be ignored and robot is still missing"
+					},
+					"response": []
+				},
+				{
+					"name": "Report after move without placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"ROBOT MISSING\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Report without placement, should report with \"ROBOT MISSING\""
+					},
+					"response": []
+				},
+				{
+					"name": "Left without robot placement",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{LEFT_URL}}",
+							"host": [
+								"{{LEFT_URL}}"
+							]
+						},
+						"description": "Should be igonred, and robot is still missing"
+					},
+					"response": []
+				},
+				{
+					"name": "Report after left without placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"ROBOT MISSING\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Report without placement, should report with \"ROBOT MISSING\""
+					},
+					"response": []
+				},
+				{
+					"name": "Right without robot placement",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{RIGHT_URL}}",
+							"host": [
+								"{{RIGHT_URL}}"
+							]
+						},
+						"description": "Should be igonred, and robot is still missing"
+					},
+					"response": []
+				},
+				{
+					"name": "Report after rigth without placement",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"ROBOT MISSING\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Report without placement, should report with \"ROBOT MISSING\""
+					},
+					"response": []
+				},
+				{
+					"name": "Place with negative X",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39333b5e-8e7f-42e1-a143-2cf85c9330a7",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=-2&y=3&face=NORTH",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "-2"
+								},
+								{
+									"key": "y",
+									"value": "3"
+								},
+								{
+									"key": "face",
+									"value": "NORTH"
+								}
+							]
+						},
+						"description": "Place robot at (-2,3,NORTH) shouldn't be placed"
+					},
+					"response": []
+				},
+				{
+					"name": "Place with negative Y",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39333b5e-8e7f-42e1-a143-2cf85c9330a7",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=-2&y=3&face=NORTH",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "-2"
+								},
+								{
+									"key": "y",
+									"value": "3"
+								},
+								{
+									"key": "face",
+									"value": "NORTH"
+								}
+							]
+						},
+						"description": "Place robot at (2,-3,NORTH) shouldn't be placed"
+					},
+					"response": []
+				},
+				{
+					"name": "Place with exceeded Y",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39333b5e-8e7f-42e1-a143-2cf85c9330a7",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=2&y=5&face=NORTH",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "2"
+								},
+								{
+									"key": "y",
+									"value": "5"
+								},
+								{
+									"key": "face",
+									"value": "NORTH"
+								}
+							]
+						},
+						"description": "Place robot at (2,5,NORTH) shouldn't be placed"
+					},
+					"response": []
+				},
+				{
+					"name": "Place with exceeded X",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39333b5e-8e7f-42e1-a143-2cf85c9330a7",
+								"exec": [
+									"pm.test(\"Status code is 202\", function () {",
+									"    pm.response.to.have.status(202);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=2&y=5&face=NORTH",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "2"
+								},
+								{
+									"key": "y",
+									"value": "5"
+								},
+								{
+									"key": "face",
+									"value": "NORTH"
+								}
+							]
+						},
+						"description": "Place robot at (6,3,NORTH) shouldn't be placed"
+					},
+					"response": []
+				},
+				{
+					"name": "Place with invalid direction",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39333b5e-8e7f-42e1-a143-2cf85c9330a7",
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"    pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=2&y=3&face=OUTH",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "2"
+								},
+								{
+									"key": "y",
+									"value": "3"
+								},
+								{
+									"key": "face",
+									"value": "OUTH"
+								}
+							]
+						},
+						"description": "Place robot at (2,3,OUTH) shouldn't be placed"
+					},
+					"response": []
+				},
+				{
+					"name": "Report: expect to be still missing",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"ROBOT MISSING\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Report without placement, should report with \"ROBOT MISSING\""
+					},
+					"response": []
+				}
+			],
+			"description": "This Folder Should contatins test files for all scenarios before robot placement for first time"
+		},
+		{
+			"name": "Scenario 1",
+			"item": [
+				{
+					"name": "PlaceSuccessfully (2,3,NORTH)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=2&y=3&face=NORTH",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "2"
+								},
+								{
+									"key": "y",
+									"value": "3"
+								},
+								{
+									"key": "face",
+									"value": "NORTH"
+								}
+							]
+						},
+						"description": "Place robot in a valid place, should be placed successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "Move forward towards NORTH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a774e804-e137-44e4-bf67-f4875338437f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MOVE_URL}}",
+							"host": [
+								"{{MOVE_URL}}"
+							]
+						},
+						"description": "Robot should be moved successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "Report: expect (2,4,NORTH)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"2,4,NORTH\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Should report with updated location"
+					},
+					"response": []
+				}
+			],
+			"description": "- Place robot at (2,3) towards NORTH, should be placed successfully\n- then move, should be moved successfully\n- Then report, should report with updated location expected to be (2,4,NORTH)",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "23b6d204-dbd2-4c55-986f-3bdd8f436245",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "95bd0763-1414-43a3-a004-084b857d42b6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Rotate Left Successful Scenarios",
+			"item": [
+				{
+					"name": "Rotate Left From North",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3,NORTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=NORTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "NORTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Left From North",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{LEFT_URL}}",
+									"host": [
+										"{{LEFT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,WEST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,WEST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,NORTH), should be placed successfully\n- Left, should be rotated successfully\n- Report: expected (2,3,WEST)",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotate Left From EAST",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3,EAST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=NORTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "NORTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Left From EAST",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{LEFT_URL}}",
+									"host": [
+										"{{LEFT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,NORTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,WEST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,EAST), should be placed successfully\n- Left, should be rotated successfully\n- Report: expected (2,3,NORTH)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "60b7abb8-e265-4494-9222-56574473f837",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a2baaf1-9535-4f06-bec0-5232a56a42b2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotate Left From South",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3. SOUTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=SOUTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "SOUTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Left From SOUTH",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{LEFT_URL}}",
+									"host": [
+										"{{LEFT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,EAST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,EAST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,SOUTH), should be placed successfully\n- Left, should be rotated successfully\n- Report: expected (2,3,EAST)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "60b7abb8-e265-4494-9222-56574473f837",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a2baaf1-9535-4f06-bec0-5232a56a42b2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotate Left From West",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3. WEST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=WEST",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "WEST"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Left From WEST",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{LEFT_URL}}",
+									"host": [
+										"{{LEFT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,SOUTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,SOUTH\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,WEST), should be placed successfully\n- Left, should be rotated successfully\n- Report: expected (2,3,SOUTH)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "60b7abb8-e265-4494-9222-56574473f837",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a2baaf1-9535-4f06-bec0-5232a56a42b2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Rotate Right Successful Scenarios",
+			"item": [
+				{
+					"name": "Rotate Right From North",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3,NORTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=NORTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "NORTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Right",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8e3ac709-cbbb-46b7-b8ef-49865d46595e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{RIGHT_URL}}",
+									"host": [
+										"{{RIGHT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3, EAST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,EAST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,NORTH), should be placed successfully\n- Right, should be rotated successfully\n- Report: expected (2,3,EAST)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0e9700ef-dfd9-44ce-89d9-b6c00df5ae5a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "9221d6fd-20b3-46bd-80af-2f909087468f",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotate Rigth From EAST",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3,EAST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=EAST",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "EAST"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Right",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{RIGHT_URL}}",
+									"host": [
+										"{{RIGHT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,SOUTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,SOUTH\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,EAST), should be placed successfully\n- Left, should be rotated successfully\n- Report: expected (2,3,NORTH)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "60b7abb8-e265-4494-9222-56574473f837",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a2baaf1-9535-4f06-bec0-5232a56a42b2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotate Right From South",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3. SOUTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=SOUTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "SOUTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Right",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{RIGHT_URL}}",
+									"host": [
+										"{{RIGHT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,WEST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e12f3cca-f61b-42e0-879f-1c780105456b",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,WEST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{REPORT_URL}}",
+									"host": [
+										"{{REPORT_URL}}"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,SOUTH), should be placed successfully\n- Rigth, should be rotated successfully\n- Report: expected (2,3,WEST)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "60b7abb8-e265-4494-9222-56574473f837",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a2baaf1-9535-4f06-bec0-5232a56a42b2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Rotate Right From West",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,3. WEST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=3&face=WEST",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "WEST"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Rotate Right",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{RIGHT_URL}}",
+									"host": [
+										"{{RIGHT_URL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect(2,3,NORTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,3,NORTH\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"description": "- Place at (2,3,WEST), should be placed successfully\n- Right, should be rotated successfully\n- Report: expected (2,3,NORTH)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "60b7abb8-e265-4494-9222-56574473f837",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8a2baaf1-9535-4f06-bec0-5232a56a42b2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d4284ce3-695c-4b93-a0e3-32241234ab45",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f532bdf7-29de-4c74-9f57-83c62c16af0b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Senario 2",
+			"item": [
+				{
+					"name": "PlaceSuccessfully (1,2,EAST)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{PLACE_URL}}?x=1&y=2&face=EAST",
+							"host": [
+								"{{PLACE_URL}}"
+							],
+							"query": [
+								{
+									"key": "x",
+									"value": "1"
+								},
+								{
+									"key": "y",
+									"value": "2"
+								},
+								{
+									"key": "face",
+									"value": "EAST"
+								}
+							]
+						},
+						"description": "Place robot in a valid place, should be placed successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "Move",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a774e804-e137-44e4-bf67-f4875338437f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MOVE_URL}}",
+							"host": [
+								"{{MOVE_URL}}"
+							]
+						},
+						"description": "Robot should be moved successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "Move 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a774e804-e137-44e4-bf67-f4875338437f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MOVE_URL}}",
+							"host": [
+								"{{MOVE_URL}}"
+							]
+						},
+						"description": "Robot should be moved successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "Left",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1602a0e4-f387-4edd-94b5-9a07ca71394d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{LEFT_URL}}",
+							"host": [
+								"{{LEFT_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a774e804-e137-44e4-bf67-f4875338437f",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{MOVE_URL}}",
+							"host": [
+								"{{MOVE_URL}}"
+							]
+						},
+						"description": "Robot should be moved successfully"
+					},
+					"response": []
+				},
+				{
+					"name": "Report: expect (3,3,NORTH)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"3,3,NORTH\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/report",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"report"
+							]
+						},
+						"description": "Should report with updated location"
+					},
+					"response": []
+				}
+			],
+			"description": "PLACE 1,2,EAST\r\nMOVE\r\nMOVE\r\nLEFT\r\nMOVE\r\nREPORT\r\nOutput: 3,3,NORTH"
+		},
+		{
+			"name": "Test Move Invalid Movements Should Be Ignored",
+			"item": [
+				{
+					"name": "Invalid move towards north",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (2,4,NORTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=2&y=4&face=NORTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "2"
+										},
+										{
+											"key": "y",
+											"value": "4"
+										},
+										{
+											"key": "face",
+											"value": "NORTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Move",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a774e804-e137-44e4-bf67-f4875338437f",
+										"exec": [
+											"pm.test(\"Status code is 202\", function () {",
+											"    pm.response.to.have.status(202);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{MOVE_URL}}",
+									"host": [
+										"{{MOVE_URL}}"
+									]
+								},
+								"description": "Robot should be moved successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect (2,4,NORTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"2,4,NORTH\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Invalid move towards east",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (4,3,EAST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=4&y=3&face=EAST",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "4"
+										},
+										{
+											"key": "y",
+											"value": "3"
+										},
+										{
+											"key": "face",
+											"value": "EAST"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Move",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a774e804-e137-44e4-bf67-f4875338437f",
+										"exec": [
+											"pm.test(\"Status code is 202\", function () {",
+											"    pm.response.to.have.status(202);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{MOVE_URL}}",
+									"host": [
+										"{{MOVE_URL}}"
+									]
+								},
+								"description": "Robot should be moved successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect (4, 3, EAST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"4,3,EAST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Invalid move towards south",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (0,0,South)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=0&y=0&face=SOUTH",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "0"
+										},
+										{
+											"key": "y",
+											"value": "0"
+										},
+										{
+											"key": "face",
+											"value": "SOUTH"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Move",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a774e804-e137-44e4-bf67-f4875338437f",
+										"exec": [
+											"pm.test(\"Status code is 202\", function () {",
+											"    pm.response.to.have.status(202);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{MOVE_URL}}",
+									"host": [
+										"{{MOVE_URL}}"
+									]
+								},
+								"description": "Robot should be moved successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect (0,0,SOUTH)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"0,0,SOUTH\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Invalid move towards west",
+					"item": [
+						{
+							"name": "PlaceSuccessfully (0,2,WEST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "358f42a0-1ade-4068-9f1c-912e197b6e81",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{PLACE_URL}}?x=0&y=2&face=WEST",
+									"host": [
+										"{{PLACE_URL}}"
+									],
+									"query": [
+										{
+											"key": "x",
+											"value": "0"
+										},
+										{
+											"key": "y",
+											"value": "2"
+										},
+										{
+											"key": "face",
+											"value": "WEST"
+										}
+									]
+								},
+								"description": "Place robot in a valid place, should be placed successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Move",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "a774e804-e137-44e4-bf67-f4875338437f",
+										"exec": [
+											"pm.test(\"Status code is 202\", function () {",
+											"    pm.response.to.have.status(202);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{MOVE_URL}}",
+									"host": [
+										"{{MOVE_URL}}"
+									]
+								},
+								"description": "Robot should be moved successfully"
+							},
+							"response": []
+						},
+						{
+							"name": "Report: expect (0,2,WEST)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d6a407dd-75ff-4cbf-93ef-3f76171d7b55",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Body is correct\", function () {",
+											"    pm.response.to.have.body(\"0,2,WEST\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/report",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"report"
+									]
+								},
+								"description": "Should report with updated location"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "bd5e3301-47c0-41d1-b3fa-e89238701c6a",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7fcf9103-c7ac-466b-bc96-62a059a6a722",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3e67643f-6ee6-4239-ac25-bb7ec770211f",
+			"key": "HOST",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"id": "60e4327b-c286-4771-a557-aca6303c3cc9",
+			"key": "PORT",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"id": "d7d05aaa-7985-47b7-afd9-31d21a9dcf07",
+			"key": "BASE_URL",
+			"value": "http://{{HOST}}:{{PORT}}/api/tabletop",
+			"type": "string"
+		},
+		{
+			"id": "f7bd840b-14d5-4c17-899c-b9d8ad0bcd29",
+			"key": "MOVE_URL",
+			"value": "{{BASE_URL}}/move",
+			"type": "string"
+		},
+		{
+			"id": "4d294f93-9e0d-4df8-bee4-f51f4b62028c",
+			"key": "REPORT_URL",
+			"value": "{{BASE_URL}}/report",
+			"type": "string"
+		},
+		{
+			"id": "dad99fe2-e079-4a4a-aac0-0b41eea66a31",
+			"key": "LEFT_URL",
+			"value": "{{BASE_URL}}/left",
+			"type": "string"
+		},
+		{
+			"id": "96a9a51b-df60-41a0-ae77-7ceaacff524b",
+			"key": "RIGHT_URL",
+			"value": "{{BASE_URL}}/right",
+			"type": "string"
+		},
+		{
+			"id": "8807e596-33af-429b-bd74-e776b64748fa",
+			"key": "PLACE_URL",
+			"value": "{{BASE_URL}}/place",
+			"type": "string"
+		}
+	]
+}
